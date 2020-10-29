@@ -80,7 +80,7 @@ There are many symbols used in programming, each of which has a different purpos
 ### Basic Symbols
 Before studying more about the Operators, you should know the meaning of some important symbols that do not fall in the category of Operators. These include the braces, parentheses, single quotes, double quotes and semi-colon. This will give you more familiarity with the code and in turn help you make more sense of it. Eventually you will develop the intuition and will be able to read the code easily, just like a natural language and understand the meaning.
 
-### Braces
+#### Braces
 The basic ‘hello world’ code will be used in the following example to keep the things simple.
 ```c
 #include <a_samp>
@@ -97,7 +97,7 @@ public OnFilterScriptInit ()
 ```
 This relation will become more apparent as you study the properties of functions in later topics.
 
-### Parentheses
+#### Parentheses
 The syntactic use of parentheses is similar to the braces but they both imply different meanings. While braces are used for enclosing a collection of statements, the parentheses are used to enclose data or others requirements that are needed by that statement. For example, the print function takes in some text input so we use the brackets to enclose that input data (the double quotation will be explained in a later section) :
 ```c
 // A function is a keyword that performs a specific task
@@ -119,14 +119,14 @@ If there is no data or arguments needed by a statement but it is of the type to 
 public OnFilterScriptInit ()
 ```
 
-### Semi-colon
+#### Semi-colon
 One of the single most used operators in Pawn language is the semi-colon operator and a lot of other languages share the same property. You can think of the semi-colon (;) as a period which indicates the end of a sentence. The semi-colon operator simply indicates to the compiler about the end of a statement. For-example if you notice, in the code presented in preceding examples, the print statement(s) have a semi-colon in the end which means the it’s the end of that statement.
 ```c
 print ("I like Pawn.");
 ```
 It is required at the end of every single-line statement or otherwise the compiler will not be unable to distinguish between different lines of code which in-turn will show an error upon compilation.
 
-### Single and Double Quotation Symbols
+#### Single and Double Quotation Symbols
 Single quotation marks, also referred to as apostrophe(s) are used to enclose a single character which indicates that the enclosed character is some data that needs to be stored somewhere or is required by a statement. This will become more clear in later topics.
 While the single-quotes are used to enclose a single character, the double quotations are used to enclose a strings which basically is a term used for referring to an ‘array of characters’. Since, in programming we deal with many types of data (datatypes) which may include simple integers, decimal values, characters or a collection of characters, we classify them using specific names, and in this case the name string is used to refer to any textual form of data. 
 For example, (as explained before) the print function takes in some string data and displays it in the console when the script is executed. In order to pass that data into the function, we enclose the input text between double quotation marks :
@@ -138,7 +138,7 @@ print (Hello World);
 print ("Hello World");
 ```
 
-### Revision
+#### Revision
 Now I would like you to take a look at the following code in the context of the previous explanations.
 ```c
 #include <a_samp>
