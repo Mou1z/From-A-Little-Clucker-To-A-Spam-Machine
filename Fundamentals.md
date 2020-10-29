@@ -399,3 +399,251 @@ num /= 2; // Divides 'num' by 2
 
 // Final value of 'num': 1
 ```
+
+
+
+## Constants
+Similar to variables, constants are entities which can hold values, but the main difference is that once a constant is declared, it’s value stored in it will not be changeable. Constants are declared using the ‘const’ keyword :
+```c
+const my_constant = 5;
+my_constant = 1; // Will show an error
+
+const my_constant; // Will show an error
+```
+Declaring a variable with a value is optional. If a variable is simply declared without assigning it a value, it takes up zero as its value, but unlike variables a constant must be declared with an initial value. Other than these properties, constants are pretty much similar to the variables, and can store all types of data which a variable is capable of storing.
+
+
+
+## Conditionals
+Conditionals or Conditional Statements are used to evaluate conditions and execute a block of code based on the result.
+##### Code
+```c
+#include <a_samp>
+
+public OnFilterScriptInit ()
+{
+    new value = 100;
+    
+    if (value > 99)
+    {
+        print ("The value is greater than 99.");
+    }
+    else
+    {
+        print ("The value is smaller than 99.");
+    }
+    
+    return 1;
+}
+```
+##### Output
+```c
+The value is greater than 99.
+```
+The code above first declares a variable named ‘value’ and assigns it a value of 100. It then checks if the value stored in the ‘value’ variable is greater than 99, if it is then it prints the output indicating that, otherwise it prints the second print statement from the code. There are two new keywords in the code above namely ‘if’ and ‘else’. The ‘if’ keyword is used for writing an if-statement’ of ‘conditional’ which is followed by a pair of brackets that contain the condition of the statement since that’s the requirement of the if-statement. The condition in the brackets contains a reference to the variable ‘value’ and the number ‘99’ separated by a greater-than symbol (>) which is a ‘Conditional Operator’. The combination of the variable reference, greater-than conditional operator and the value 99 forms a condition which simply checks if the value stored in the variable ‘value’ is greater than 99. One thing to remember is that, wherever a variable is referenced, it returns the variable’s value at that point.
+```c
+if (value > 99) // What we write
+
+if (100 > 99) // What the computer sees
+// Here '100' is the value of the variable 'value'
+```
+As explained before, if that condition is true the computer will execute all the code in the block under this if-statement (code between the enclosing pair of braces that follow). If it is false, then the code block belonging to the ‘else’ statement is executed.
+If the code block contains a single line, then the enclosing curly braces are not necessary, therefore the above program can also be written as :
+```c
+#include <a_samp>
+
+public OnFilterScriptInit ()
+{
+    new value = 100;
+    
+    if (value > 99)
+        print ("The value is greater than 99.");
+    else
+        print ("The value is smaller than 99.");
+    
+    return 1;
+}
+```
+The conditionals simply compare different values but this turns out to be extremely useful in programming. There are more conditional operators which allow more flexible operations, a list of the basic conditional operators is given below :
+- Greater Than ( **>** )
+- Less Than ( **<** )
+- Equal To ( **==** )
+Note: The equal-to operator contains double equal signs, unlike the assignment operator. The example below makes use of the equal-to operator.
+```c
+new score = 100;
+
+if (score == 100)
+    print ("The score is equal to 100.");
+else
+    print ("The score less or greater than 100.");
+
+// Output: The score is equal to 100.
+```
+If you combine the ‘else’ and ‘if’ keywords, its form a new combined keyword called ‘else if’ which basically works as an extension to the if-statement by adding more conditions you can check for more possibilities. This can be better understood by an example :
+```c
+new score = 100;
+
+if (score == 100)
+    print ("The score is equal to 100.");
+else if (score < 100)
+    print ("The score is less than 100.");
+else
+    print ("The score is more than 100.");
+
+// Output: The score is equal to 100.
+```
+In the above example, you will notice there’s an addition condition along with the ‘else if’ keywords. The code first checks if the value of score is equal to 100, if it is then the code block under ‘if’ will be executed, otherwise it will more on to the next operation, that is,  another condition which checks if the value of score is less than 100, if it’s true then it executes the code below it. The code under ‘else’ is executed if you provided condition is satisfied, and if there is no ‘else’ in your code (since it’s optional) then nothing will be executed.  You can experiment with the code by changing the value of ‘score’ and observing the change in output, in order to understand it more clearly. You can chain the conditionals adding as many conditions as you want using ‘else if’.
+There is another set of operators called ‘Logical Operators’. They are used in conditional statements to combine and create more elaborate conditions which comes in handy in many situations. These operators include logical NOT, OR and AND operators.
+- NOT ( ! )
+- OR ( || )
+- AND ( && )
+The logical **‘OR’** operator checks if the condition on either one of its sides is true.
+```c
+new score = 1;
+
+if (score < 0 || score > 0)
+  print ("The score is either less or more than zero.");
+else
+  print ("The score is 0.");
+
+// Output: The score is either less or more than zero.
+```
+The logical **‘AND’** operator checks if the conditions on both of its sides are true.
+```c
+new score = 45;
+
+if (score > 25 && score < 50)
+  print ("The value of score is in the range 25-50.");
+else
+  print ("The vlaue of the score is not in the range.");   
+
+// Output: The value of score is in the range 25-50. 
+```
+The logical **‘NOT’** operator basically checks if the condition is not true.
+```c
+new val = 25;
+
+if (!(val == 25))
+  print ("val is not equal to 25");
+else
+  print ("val is equal to 25");
+
+// Output: val is equal to 25.
+```
+The condition first evaluates the brackets (val == 25) and then turns its result opposite (from true to false) because of the ‘!’ operator. So it is basically checking if the value is not equal to 25. Rest of the code is self explanatory. This operator can also be combined with the equal sign to form the ‘Not Equal-To’ operator, using which we can write the same code given above but in a comparatively neater way :
+```c
+#include <a_samp>
+
+public OnFilterScriptInit ()
+{
+    new val = 25;
+    
+    if (val != 25)
+        print ("val is not equal to 25");
+    else
+        print ("val is equal to 25");
+    
+    return 1;
+}
+```
+
+
+## Loops
+Loops are used for repeating a block of code over and over again for a certain amount of time or till a certain condition is satisfied. There are three types of loops namely :
+- for loop
+- while loop
+- do…while loop
+### ‘For’ Loop
+One of the most commonly used loops is called the for loop, which is used for repeating a block of code for a specific number of times. The syntax for writing a for loop is the following :
+```c
+for (initiation ; condition ; incrementation)
+{
+    // Write code to be repeated here.
+    // Just like the conditionals, brackets are not necessary if it's
+    // a single line.
+}
+
+// initiation - used for creating a variable that will be used in the looping process (optional)
+
+// condition - used for writing the condition under which the loop with proceed (optional)
+
+// incrementation - (commonly) preforming an increment or decrement operation on the variable; (optional)
+```
+The following is a practical example which uses for-loop to print counting from zero up to 99 :
+```c
+#include <a_samp>
+
+public OnFilterScriptInit ()
+{   
+    for (new i = 0 ; i < 100 ; i++)
+        printf ("%i", i);
+
+    return 1;
+}
+
+// Output:
+// 0
+// 1
+// 2
+// ...
+// 99
+```
+In the loop’s brackets, we first create a local variable (new i) which only by usable and assessable inside the loop’s code block. As a second expression, we provide a condition for the loop (i < 100) , so that before every iteration the loop checks the condition, in case if it is true it proceeds, otherwise the loop stops. The third expression (i++) is for specifying an arithmetic operation on any accessible variable, which is then performed on every iteration. Conventionally we increment or decrement the value of the loop’s variable so that it can eventually meet the condition provided. Notice how the expressions are separated by semi-colons, this is how the compiler can distinguish between different expressions, statements etc.
+There is a new operator in the code (++)  which is called the ‘increment’ operator. It is used for incrementing the value of a variable. Similar to that, there is a decrement operator (- -) which is used to decrement the value of a variable. Examples of both are given below :
+```c
+new a = 10;
+a++; 
+printf ("%d", a); 
+// Output: 11
+
+new b = 1;
+b--;
+printf ("%d", b);
+// Output: 0
+```
+Note that if the three parameters are left empty-which is possible as they are optional-it forms an infinite (never ending) loop.
+```c
+for (;;) // The semi-colons are still required
+{
+    print ("This will never stop.");
+}
+```
+### While Loop
+A while loop takes only one expression, that is a condition under which it will iterate till it’s turns false. Following is a simple program which uses a while loop, functioning similar to a for-loop.
+```c
+#include <a_samp>
+
+public OnFilterScriptInit ()
+{
+    new a = 10;
+    
+    while (a >= 5)
+    {
+        printf ("%d", a);
+        a--;
+    }
+    
+    return 1;
+}
+
+// Output:
+10
+9
+8
+7
+6
+5
+```
+### Do…While Loop
+The do…while loop similar to the while loop also repeats a set of instructions (code) till the provided condition results false, but there is a difference in its functionality. In the while loop the condition check is performed before executing the code block, therefore if the condition is already false, it will not execute any code. In contrast to that, the do…while loop first executes the code then checks the condition, every iteration. Consequently, even if the condition provided is already false, the code will execute at least once. Following is an example :
+```c
+new i = -1;
+
+do
+{
+  print ("This will print once.");
+}
+while (i > 0);
+
+// Output : This will print once.
+```
