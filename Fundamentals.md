@@ -352,12 +352,12 @@ new bool: switch_on = true; // Correct
 ```
 Using correct tags is important to avoid any bugs or errors during program execution. 
 In this chapter, the Assignment Operator, as explained before is used for assigning a value to a variable, but there are a few more operators that can be useful while dealing with variables. The ‘Arithmetic Operators’ are used for performing arithmetic operations like addition, subtraction, multiplication, division, finding the remainder and raising a value to a power.
-- Addition ( + )
-- Subtraction ( - )
-- Multiplication ( * )
-- Division ( / )
-- Remainder ( % )
-- Power ( ^ )
+- Addition ( **+** )
+- Subtraction ( **-** )
+- Multiplication ( ***** )
+- Division ( **/** )
+- Remainder ( **%** )
+- Power ( **^** )
 There are many applications of these operators, some of the examples are given below :
 ```c
 // Example 1
@@ -496,9 +496,9 @@ else
 ```
 In the above example, you will notice there’s an addition condition along with the ‘else if’ keywords. The code first checks if the value of score is equal to 100, if it is then the code block under ‘if’ will be executed, otherwise it will more on to the next operation, that is,  another condition which checks if the value of score is less than 100, if it’s true then it executes the code below it. The code under ‘else’ is executed if you provided condition is satisfied, and if there is no ‘else’ in your code (since it’s optional) then nothing will be executed.  You can experiment with the code by changing the value of ‘score’ and observing the change in output, in order to understand it more clearly. You can chain the conditionals adding as many conditions as you want using ‘else if’.
 There is another set of operators called ‘Logical Operators’. They are used in conditional statements to combine and create more elaborate conditions which comes in handy in many situations. These operators include logical NOT, OR and AND operators.
-- NOT ( ! )
-- OR ( || )
-- AND ( && )
+- NOT ( **!** )
+- OR ( **||** )
+- AND ( **&&** )
 The logical **‘OR’** operator checks if the condition on either one of its sides is true.
 ```c
 new score = 1;
