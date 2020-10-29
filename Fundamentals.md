@@ -76,7 +76,6 @@ Other than disabling parts of code, comments can be very useful for leaving out 
 
 ## Symbols and Operators
 There are many symbols used in programming, each of which has a different purpose or implication. Most of them are explained in the following sub-headings.
-
 ### • Basic Symbols
 Before studying more about the Operators, you should know the meaning of some important symbols that do not fall in the category of Operators. These include the braces, parentheses, single quotes, double quotes and semi-colon. This will give you more familiarity with the code and in turn help you make more sense of it. Eventually you will develop the intuition and will be able to read the code easily, just like a natural language and understand the meaning.
 ### Braces
