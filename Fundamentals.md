@@ -358,6 +358,7 @@ In this chapter, the Assignment Operator, as explained before is used for assign
 - Division ( **/** )
 - Remainder ( **%** )
 - Power ( **^** )
+
 There are many applications of these operators, some of the examples are given below :
 ```c
 // Example 1
