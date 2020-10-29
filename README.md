@@ -28,4 +28,4 @@ A book about the PAWN Language (and SA-MP/OpenMP Development), written for absol
   - Pre-Processor Directives
 	- Header Files / Includes
 	- Defines
-	- Compiler Errors
+  - Compiler Errors
