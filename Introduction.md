@@ -1,9 +1,9 @@
 # Introduction
 
-- [Purpose of Writing the Book](## Purpose of Writing the Book)
-- [Programming and PAWN](## Programming and PAWN)
-- [The PAWN Compiler](## The PAWN Compiler)
-- [Hello World](## Hello World)
+- [Purpose of Writing the Book](#purpose-of-writing-the-book)
+- [Programming and PAWN](#programming-and-pawn)
+- [The PAWN Compiler](#the-pawn-compiler)
+- [Hello World](#hello-world)
 
 ## Purpose of Writing the Book
 This book is written with the aim to teach the fundamental concepts of programming using one of the most beginner-friendly languages known as PAWN. Choosing PAWN as your first language can have many benefits namely familiarization with the fundamental concepts of programming, picking up good programming practices and algorithm implementing skills which are transferable to other languages. If you’re experienced in PAWN, learning a new language won’t be a difficult task for you.
