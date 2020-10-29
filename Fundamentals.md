@@ -354,7 +354,7 @@ Using correct tags is important to avoid any bugs or errors during program execu
 In this chapter, the Assignment Operator, as explained before is used for assigning a value to a variable, but there are a few more operators that can be useful while dealing with variables. The ‘Arithmetic Operators’ are used for performing arithmetic operations like addition, subtraction, multiplication, division, finding the remainder and raising a value to a power.
 - Addition ( **+** )
 - Subtraction ( **-** )
-- Multiplication ( ***** )
+- Multiplication ( **\*** )
 - Division ( **/** )
 - Remainder ( **%** )
 - Power ( **^** )
