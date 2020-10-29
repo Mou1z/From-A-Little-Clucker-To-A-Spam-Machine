@@ -1,6 +1,6 @@
 # The PAWN Language | Applying the Fundamentals
 
-This chapter will mainly include practical applications of the fundamentals taught in the prior chapter. Demonstrating the use of different features of the language through examples, this chapter aims to teach the intricacies of the fundamental concepts, therefore, after carefully reading the examples and their explanations presented in this chapter, the reader should have a better understanding of the concepts and hence should be able to apply them flexibly.
+This chapter will mainly include practical applications of the fundamentals taught in the previous chapter. Demonstrating the use of different features of the language through examples, this chapter aims to teach the intricacies of the fundamental concepts, therefore, after carefully reading the examples and their explanations presented in this chapter, the reader should have a better understanding of the concepts and hence should be able to apply them flexibly.
 
 - [Application 1](#application-1)
 
