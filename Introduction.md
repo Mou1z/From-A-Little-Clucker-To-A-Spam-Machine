@@ -57,4 +57,4 @@ Hello World
 ```
 This was a very simple and the traditional ‘Hello World’ program every programmer writes while learning to code. If you are following along practically, you can experiment by trying to change the output text which will make you more familiar with the code. 
 
-### Next Topic : [The Pawn Language: Fundamentals](https://github.com/Mou1z/From-A-Little-Clucker-To-A-Spam-Machine/blob/main/Fundamentals.md)
+### Next Chapter : [The Pawn Language: Fundamentals](https://github.com/Mou1z/From-A-Little-Clucker-To-A-Spam-Machine/blob/main/Fundamentals.md)
