@@ -151,7 +151,7 @@ An operator is a symbol (sometimes a combination of symbols) used in code which 
 - Logical Operators       ( ! , || , &&  )
 - Ternary Operator        ( condition  ?  True  :  False ; )
 - Bitwise Operators       (& , | , ^, ~ , ! )
-![Operators](https://imgur.com/pb1IKkH)
+![Operators](https://i.imgur.com/pb1IKkH.png)
 It’s not a small topic and since the explanations of each operator’s functioning is dependent upon the programming concepts which will be introduced (or explained) later, there I will be explaining parts of it at relevant places in later topics throughout the book. But it is important for you to be able to recognize such operators though not necessary while reading the guide as each example has been explained in detail pointing out all types of operators and symbols where necessary.
 ### String Formatting
 The method of inserting changeable or variable data in a string is called string formatting. Formatting a string means adding ‘format specifiers’ which are symbols that are replaced by some data which may be text or values, therefore there are different format specifiers for each datatype. Till now we have been using the print function to output a string (text) in the console but there is an advanced version of it called ‘printf’. The general usage of printf function is similar to that of print but it adds the ability of formatting the input string. The syntactical difference between print and printf is the following :
@@ -172,7 +172,7 @@ printf ("Your score is %i", 100);
 // Output: Your score is 100
 ```
 If the above two statements are used under the OnFilterScriptInit function, both will print the same text in console when the script is loaded. In the printf statement, the main string contains a format specifier for integer data (%d). The data in first optional argument replaces the first appearing format specifier in the main string which is %d when the statement is executed during the runtime. Following is a list of format specifiers in Pawn :
-![Format Specifiers](https://imgur.com/C1TFmeA)
+![Format Specifiers](https://i.imgur.com/C1TFmeA.png)
 From the above table, we know that string data uses the specifier %s. We can use that in an example :
 ```c
 printf ("This program is written by %s in %i seconds.", "Mouiz", 10);
