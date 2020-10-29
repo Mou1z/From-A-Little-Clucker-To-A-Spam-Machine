@@ -37,6 +37,7 @@ The preceding was an example of a single-line comment. The code in programming o
 /*         code, text, or anything else         */
 ```
 A multi-line comment starts with an operator containing a forward-slash plus a star symbol (/*) and it ends with a similar operator (*/). Everything in-between is commented out. Following is a program containing multiple print statements, some of which are commented out :
+##### Code
 ```c
 #include <a_samp>
 
@@ -63,6 +64,7 @@ a
 statement.
 ```
 If you look at the code, there are six ‘print’ statements but four of them are executed while two are skipped, which is because those two statements are enclosed in the multi-line comment operators (/*) and (*/) and hence, commented out of the program. Multi-line comments can also be used for commenting out single lines but it won’t make much sense unless you want to comment out a specific part of that line which can be useful in some situations. Following is an arbitrary example of commenting out part of a statement (which you don’t necessarily need to understand or practice at this level) :
+##### Code
 ```c
 print ( /*"Ignored"*/ "Printed" );
 ```
@@ -647,3 +649,156 @@ while (i > 0);
 
 // Output : This will print once.
 ```
+
+
+## Functions
+A function is a keyword in a programming language, which when called (referred to) executes a block of code. We have used a some functions in the prior examples like print, printf, format, etc. A function may or may not take in arguments. Some functions are provided by the base libraries (includes), and we can use those along with other features of the language to create custom functions. One of the reasons you would write a custom function is to reduce the repetition of same lines of code in the program. Following are some functions provided by ‘a_samp’ library that will be used in the upcoming example :
+```c
+// Most of the functions take in an argument called 'playerid' which indicates 'id' of the subject player.
+
+GetPlayerAmmo (playerid);
+// Returns the ammo of equipped weapon of the player
+
+SetPlayerHealth (playerid, Float: health);
+// Sets the player's health to a certain float value (Float: health).
+
+GivePlayerWeapon (playerid, weapon_id, ammo);
+// Gives player a weapon corresponding to a 'weapon id' with the specified amount of 'ammo'.
+// The list of weapons with their IDs is provided on the Wiki. 
+
+SetPlayerInterior (playerid, interior_id);
+// Sets player's interior id to a specific value.
+// In Gta Sa, 'interior id' 0 indicates the outside world while all the interiors are linked to some specific ID.
+// If you set the a player's interior id to 3, all the interior objects (building interiors, houses, etc) linked to interior id 3 will be visible while others will be invisible even if you fly to their location using some game modifications.
+
+SetPlayerPos (playerid, Float: x, Float: y, Float: z);
+// Sets the player's position to some x, y, z coordinates. 
+// 'z' represents the vertical axis.
+```
+A complete list of functions can be found on the Open.MP Wiki : https://www.open.mp/docs/scripting/functions
+We can use functions creatively for the making of various features. Following is the code for a ‘One-shot Deagle Deathmatch’ where the player upon spawning will be given a Desert Eagle gun with 3 bullets and 10.0 health :
+```c
+#include <a_samp>
+
+const DM_INTERIOR = 1;
+
+const DM_WEAPON = 24;
+const DM_WEAPON_AMMO = 3;
+
+public OnPlayerSpawn (playerid)
+{
+    PutPlayerInDeathmatch (playerid);
+    return 1;
+}
+
+public OnPlayerWeaponShot(playerid, weaponid, hittype, hitid, Float: fX, Float: fY, Float: fZ)
+{
+    if (GetPlayerAmmo (playerid) == 0)
+        SetPlayerHealth (playerid, 0.0);
+
+    return 1;
+}
+
+PutPlayerInDeathmatch (playerid)
+{
+    SetPlayerHealth (playerid, 10.0);
+    GivePlayerWeapon (playerid, DM_WEAPON, DM_WEAPON_AMMO);
+    
+    SetPlayerInterior (playerid, DM_INTERIOR);
+    SetPlayerPos (playerid, 1412.639892, -1.787510, 1000.924377);
+    
+    return 1;
+}
+```
+The above example introduces some public functions (callbacks). Callbacks are more like ‘events’ as they are intended to be called by the server when a specific even happens, for-example when a player spawns, dies or leaves the server. When a function is called (or other terms ‘executed’) the code under that function (in it’s code block) is also executed. Most of the callbacks also have some arguments, which in contrast to normal functions, give us information instead. These arguments pass some information in the form of local variables which can in-turn be accessed through their code block. Most of the callbacks in ‘a_samp’ pass forward a variable named ‘playerid’ which indicates the id of the player performing an action like leaving the server or killing another player, etc. Following are the explanations for those :
+```c
+public OnPlayerSpawn (playerid)
+// The function is executed when a player spawns.
+// 'playerid' - id of the player who spawned.
+
+public OnPlayerWeaponShot (playerid, ...)
+// This is called when a player shoots a weapon.
+// playerid - The ID of the player that shot a weapon.
+// weaponid - The ID of the weapon shot by the player.
+// hittype - The type of thing the shot hit (none, player, vehicle etc)
+// hidid - The ID of the player, vehicle or object that was hit.
+// fX, fY, fZ - Coordinates the shot hit.
+```
+The above example also contains a custom function called ‘PutPlayerInDeathmatch’, in the end of the code snippet you can find the declaration of that function :
+```c
+PutPlayerInDeathmatch (playerid)
+{
+    SetPlayerHealth (playerid, 10.0);
+    GivePlayerWeapon (playerid, DM_WEAPON, DM_WEAPON_AMMO);
+    
+    SetPlayerInterior (playerid, DM_INTERIOR);
+    SetPlayerPos (playerid, 1412.639892, -1.787510, 1000.924377);
+    
+    return 1;
+}
+```
+Whenever the keyword ‘PutPlayerInDeathmatch’ is used in the code, the compiler refers to its definition and executes the code inside its codeblock.
+
+
+
+## Enumerators
+Enumerators are in simple terms, ‘group of constants’. They are frequently used for creating object-like structures (which will be covered in later chapters) as there are no objects in the Pawn language. An enumerator can be declared using the ‘enum’ keyword :
+```c
+enum my_enumerator 
+{
+    CONSTANT_1,
+    CONSTANT_2
+}
+
+printf ("%d, %d", CONSTANT_1, CONSTANT_2);
+
+// Output : 0, 1
+```
+By default, each constant (element) in an enumerator is assigned a value depending upon its position. The first constant ‘CONSTANT_1’ has a value of ‘0’, the second constant ‘CONSTANT_2’ has a value of 1 and it goes on incrementing like that as long as there are more elements. The name of an enumerator is only used when linking it with an Array (which will be covered later), therefore it is optional. We can use nameless enumerators to declare and group constants in a neat manner :
+```c
+enum
+{
+    CONST_A,
+    CONST_B
+}
+```
+The above snippet is equivalent to the following code :
+```c
+new CONST_A = 0;
+new CONST_B = 1;
+```
+
+
+
+## Preprocessor Directives
+As the name suggests, ‘preprocessor directives’ are lines of code that instruct the compiler to perform tasks like include lines of code from another script, define some constants or some keywords along with their function, these can also modify some properties of the compiler and disable warnings etc. Preprocessor Directive start with a hash (#) symbol.
+In most of the above examples we have used the ‘include’ preprocessor directive to import functions (and constants) from the ‘a_samp’ library.
+```c
+#include <a_samp>
+```
+We can also define constants :
+```c
+#define PI 3.14
+```
+Although we cannot access these constants in the similar way to those declared using the 'const' keyword, but they are useful in many cases. Other than the constants, we can define functions aswell :
+```c
+#include <a_samp>
+
+#define SUM(%0,%1) (%0+%1)
+
+public OnFilterScriptInit ()
+{
+    printf ("%d", SUM(1,1));
+    return 1;
+}
+
+// Output : 2
+```
+In the preprocessor definition we denote the respective arguments with %n where ‘n’ is the number (index) of that argument.
+
+
+
+## Compiler Warnings / Errors
+Now that you have learnt about most of the basic concepts, it will be convenient to learn about some common compiler warnings and errors.
+A compiler shows a warning when it detects some invalid syntax or operation being performed in the code because if it continues to translate the code and convert it into the object file, in turn you will run the program and it will crash mid execution as the computer won’t be able to make sense of the code. So compilers are helpful in a way that they warn us beforehand that there’s an issue with the code and points out where exactly.
+** This topic is unfinished **
