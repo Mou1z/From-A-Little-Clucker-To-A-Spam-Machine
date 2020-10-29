@@ -198,3 +198,204 @@ printf ("The \"word\" is quoted"); // Correct
 ```
 As the string data is already enclosed in double quotes, directly adding additional quotes inside the string is not possible, since compiler is not intelligent enough to distinguish between them. To solve this problem, there is a syntax for adding such characters in a string, which is adding a backslash \  before that character as shown above. These characters include single quotes, percentage symbols and a few others. A combination of a backslash and a character is called an Escape Sequence. An Escape Squence performs specific actions in a string like including special characters in a string (as explained above) and/or shifting the location of the cursor to prior or next line.
 You might have concluded that printf just has a fancy syntax since the output is the same but there is more to it. Formatted strings are in simple words are ‘dynamic strings’. Once you compile a program using a ‘print’ statement, it will show the exact same text when the script is loaded / executed, but by using formatted strings you can make the string dynamic which is possible by passing ‘variables’ instead of data in the formatting (optional) arguments. This way, the string’s output will change depending upon the value of those variables. More on that will be explained in the next topic.
+
+
+
+## Variables
+One of the most important concepts in programming is the concept of ‘variables’. In programming, a variable is an entity that is changeable, but in terms of what ? In Pawn language, a variable holds a value at any time and that value-as the name suggests-is ‘variable’ or ‘changeable’. 
+The reason why variables are so important is because they are basically small units of computer memory which can hold or ‘remember’ different values while the program is under execution (running), and that property turns out to be very useful in programming. For example, you want to keep track of the scores of 100 players in a game, you can do it easily by programming the computer to store (remember) and keep the values updated (there is a more efficient method for storing scores called ‘Arrays’, a later topic in the book). Later if you want to find the mean score of those players or want to create a leader board, those values from the variables can be easily accessed and used.
+For using a variable, first we need to declare it using a keyword plus a name for it. Following is the method of syntax of declaring a variable :
+```c
+// Creating (more appropriately, 'declaring') a variable named 'my_variable'
+
+new my_variable ;
+
+// The 'new' keyword is used for declaring a variable
+// In the above line a variable is declared with the name 'my_variable'
+// Semi-colon is used in the end to close the declaration statement.
+```
+It can be better understood by looking at some examples :
+```c
+new var;
+new ammo;
+new score;
+new vehicles;
+new top_score;
+```
+Each of the above defined variable has a value by default, which is zero. There are different ways of assigning values to a variable. One method is directly assigning a value to the variable as it’s declared :
+```c
+new letters = 25;
+```
+In the above example, a variable named ‘letters’ is being declared, with a value of 25. You will notice an equal sign which is a simple Assignment Operator that can be used for assigning values to variables. It evaluates the expression on its right and assigns the resultant value to the variable referenced on its left side. Other than assigning values directly at the declaration, you can also do it in later parts of the code :
+```c
+new letters;
+
+letters = 25;
+```
+But this can be done only if the part of the code where you’re referencing the variable is within the scope of that variable. Scope of a variable depends upon the code block or position where that variable was declared. For example a variable being declared outside any block of code, usually in the beginning of the script, has a ‘Global’ scope and can be accessed from anywhere within the script:
+```c
+#include <a_samp>
+
+new example_var = 5;
+
+public OnFilterScriptInit ()
+{
+    example_var = 10;
+
+    printf ("The value is %i", example_var);
+
+    return 1;
+}
+
+public OnPlayerConnect (playerid)
+{
+    example_var = 100;
+    
+    printf ("The value is %i", example_var);
+
+    return 1;
+}
+
+// Output : 
+// The value is 10
+// The value is 100
+
+// Note: The second output line is shown only when a player connects.
+```
+In the above example, a public function (callback) has been introduced which executes the code in it’s code block only when a player connects to the server. Public Functions or more appropriately ‘Callbacks’ are functions or parts of codes that are executed by the server on specific occasions line when a player connects, shoots, moves, disconnects etc. Hence, they can be treated as ‘events’. 
+Other than ‘Global’ (scoped) variables, there are ‘local’ or ‘private’ variables that can be accessed only from inside the block of code where they were declared. For-example :
+```c
+#include <a_samp>
+
+public OnFilterScriptInit ()
+{
+    new local_var;
+
+    local_var = 5;
+
+    return 1;
+}
+
+public OnPlayerConnect (playerid)
+{
+    local_var = 10; // This line will show an error upon compilation
+    
+    return 1;
+}
+```
+If you try to compile the code above, the compiler will show an error which is reasonable as a local variable is being references in a completely different block of code. 
+Note: If it is a nested code block then the variable can be accessed from there.
+One important thing to note is that you cannot declare variables with the same names if their scopes intercede. For example if you already have a variable named ‘score’ on a global scope, you cannot create another variable named ‘score’ on the global scope as well as a local one, and this is true for other way around as well (if you already have a local variable, avoid declaring a global variable with the same name).
+```c
+#include <a_samp>
+
+new score; 
+
+public OnFilterScriptInit ()
+{
+    new score = 5; // This line will show an error.
+    return 1;
+}
+```
+Now that you know how to declare variables, you need to know the naming rules for declaring variable which are listed below :
+- All variable names must begin with a letter or an underscore ( _ )
+- After the first initial letter, variable names can contain letters and numbers but no spaces or special characters.
+- The variable names are case sensitive i.e Uppercase letters are distinct from the lowercase letters.
+- Using a reserved word (keyword) as a variable name will show an error.
+##### Examples:
+```c
+new new; // Incorrect : Using a reserved word
+new _new; // Correct
+
+new 10letters; // Incorrect : Name starting with a number
+new letters10; // Correct
+new letters_10; // Correct
+
+new my name; // Incorrect : Space in the name
+new my_name; // Correct
+
+new !nternet; // Incorrect
+new Internet; // Correct
+```
+After that, now lets look at some examples of what types of data can be stored in variable and how :
+```c
+new letter = 'M';
+
+
+new value = 100;
+
+
+new decimal_value = 1.0; 
+// Works, but will show a compiler warning
+// warning 213: tag mismatch
+
+
+new engine_on = true; 
+// Works, and will not show a compiler warning but using a Tag is suggested
+
+
+new sentence = "This is a sentence"; 
+// Will show an error.
+// error 006: must be assigned to an array
+```
+A variable is capable of holding a character, integer value, boolean (true or false) and a float value (decimal value). The comments in the above code show that storing a string in a variable results into an error, the reason for which will be explained in the next chapter. Other than that, assigning a float value to a variable will result in a compiler warning, which can be avoided by adding ‘tags’. Without proper tags, the script will show warnings upon compilation but will be executable. Tags tell the compiler about the type of data that is intended to be stored in the variable, which in turn informs us in the form of errors or warning if we make a program-breaking mistake in the code. Example of tags :
+```c
+new decimal_value = 1.0; // Incorrect
+new bool: decimal_value = 1.0 // Incorrect
+new Float: decimal_value = 1.0; // Correct
+
+new switch_on = 1.0; // Incorrect
+new switch_on = true; // Incorrect, doesn't show a warning
+new bool: switch_on = true; // Correct
+```
+Using correct tags is important to avoid any bugs or errors during program execution. 
+In this chapter, the Assignment Operator, as explained before is used for assigning a value to a variable, but there are a few more operators that can be useful while dealing with variables. The ‘Arithmetic Operators’ are used for performing arithmetic operations like addition, subtraction, multiplication, division, finding the remainder and raising a value to a power.
+- Addition ( + )
+- Subtraction ( - )
+- Multiplication ( * )
+- Division ( / )
+- Remainder ( % )
+- Power ( ^ )
+There are many applications of these operators, some of the examples are given below :
+```c
+// Example 1
+new number = 5 + 5; // Value of 'number' is 10
+```
+```c
+// Example 2
+
+new val = 10 / 2; // The value of 'va' will be 5;
+
+new val = 10 ^ 2; // The value will be 100 in this case. As 10 raised to the power 2 is 100.
+
+new val = 4 % 2; // The stored value will be zero since the remainder when you evaluate 4 / 2 is zero.
+
+new val = 10 - 5; // The value is 5 in this case since 5 is minused from the value 10.
+```
+```c
+// Example 3
+new a = 10; // Declaring 'a' with a value of 10
+new b = 10; // Declaring 'b' with a value of 10 aswell
+new c = a + b; // Assigning the sum of 'a' and 'b' to 'c'
+
+// The above statement first evaluates everything on the right side of the Assignment Operator ( = ) and then assigns the result to whatever is on the left side.
+```
+```c
+// Example 4
+new score = 100;
+score = score + 100; // Now the value of score is 200 as it adds 100 to itself, but there is a shorter method which will be explained below.
+```
+In the above examples, a few ways in which the arithmetic operators can be used has been demonstrated. There are some Assignment Operators which are specifically called ‘Compound Assignment Operators’, in which the base assignment operator is combined with an arithmetic symbol to form a new operator which can be useful in assigning values to the variables. These include += , -= , *=, /= and a few others which are not very frequently used.
+```c
+new num = 100;
+
+num += 100; // Adds 100 to 'num'
+
+num -= 199; // Subtracts 199 from 'num'
+
+num *= 2; // Multiplies 'num' by 2
+
+num /= 2; // Divides 'num' by 2
+
+// Final value of 'num': 1
+```
