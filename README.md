@@ -29,3 +29,7 @@ A book about the PAWN Language (and SA-MP/OpenMP Development), written for absol
 	- Header Files / Includes
 	- Defines
   - Compiler Errors
+#### 3. [The PAWN Language | Applying the Fundamentals](https://github.com/Mou1z/From-A-Little-Clucker-To-A-Spam-Machine/blob/main/Applying%20Fundamentals.md)
+  - Application 1
+  
+*... much more coming soon*
