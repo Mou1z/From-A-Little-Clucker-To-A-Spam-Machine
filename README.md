@@ -1,9 +1,6 @@
 # From-A-Little-Clucker-To-A-Spam-Machine
 A book about the PAWN Language (and SA-MP/OpenMP Development), written for absolute beginners.
 
-### Author : 
-- Mouiz Ghouri
-
 ### Contributors :
 - None
 
@@ -15,15 +12,14 @@ A book about the PAWN Language (and SA-MP/OpenMP Development), written for absol
   - Hello World
 #### 2. [The Pawn Language | Fundamentals](https://github.com/Mou1z/From-A-Little-Clucker-To-A-Spam-Machine/blob/main/Fundamentals.md)
   - Comments
-  - Operators
+  - Symbols & Operators
   - String Formatting
-  - Escape Sequence
   - Variables
   - Constants
   - Conditionals
   - Loops
   - Functions
-  - Arrays
+  - Arrays (not done yet)
   - Enumerators
   - Pre-Processor Directives
 	- Header Files / Includes
