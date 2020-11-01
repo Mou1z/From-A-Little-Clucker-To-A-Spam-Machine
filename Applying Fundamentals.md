@@ -143,7 +143,7 @@ The `SendClientMessage ()` function returns '1' if the message is successfully s
 ```c
 if (100 < 200) return 1;
 ```
-If the play has money then `GivePlayerWeapon ();` function will give player the bought weapon along with 30 bullets, while `GivePlayerMoney ()` will deduce the money as it is being provided with a negative value in place of the 'amount' parameter.
+If the play has money then `GivePlayerWeapon ();` function will give player the bought weapon along with 30 bullets, while `GivePlayerMoney ()` will deduct the money as it is being provided with a negative value in place of the 'amount' parameter.
 
 ```c
 GivePlayerWeapon (playerid, weaponid, ammo);
