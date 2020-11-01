@@ -128,9 +128,22 @@ Following the above code is OnPlayerEnterCheckpoint, which contains the code for
 public OnPlayerEnterCheckpoint (playerid)
 {
     ShowPlayerDialog (playerid, 1, DIALOG_STYLE_LIST, "Weapon Shop", "Desert Eagle (50$)\nAK-47 (150$)\nM4A1 (200$)", "Select", "Cancel");
-return 1;
+    return 1;
 }
 ```
 In the second argument indicates the Unique ID of the dialog, which is 1. Each dialog must have a separate Unique ID, otherwise the responses won’t be accurately returned and bugs can arise. The third argument is a predefined constant which is included in the ‘a_samp’ header, it represents the ID of the dialog style of type ‘simple list’. Fourth argument is the title while fifth contains the main content. There are three weapons in the list along with their prices stated in brackets. Each weapon is separated by ‘\n’ which is an Escape Sequence generally responsible for shifting the cursor to the next line but in this case (in list dialog) it creates next/new ‘list item’ which contains the text that follows.
+Afterwards, we have the callback 'OnDialogResponse', the purpose of which is explained before. In the codeblock of this callback, we have an if-statement which checks if the 'dialogid' variable (Unique ID of the subject dialog) is equal to '1'. If the conditions comply, then it proceeds to execute the nested codeblock which in turn contains a switch statement intended to make decisions based on the varying value of the 'listitem' variable which is index of the item selected in the list. The list items are indexed starting from the value zero '0', so if the very first item of a dialog list is selected, the 'listitem' variable will return the value '0'.
+In each case of the switch statement we have an if condition to check if the player has enough money to buy the weapon. If the player does not have sufficient amount of cash, then it shows the player a `'You don't have enough money'` message and returns out of the function, hence the function does not execute further.
+```c
+if (GetPlayerMoney (playerid) < 50) return SendClientMessage (playerid, 0xFFFFFFFF, "ERROR: You don't have enough money to buy this weapon.");
+```
+The `SendClientMessage ()` function returns '1' if the message is successfully shown to the player, otherwise in cases like the player not being connected to the server etc, the function returns the value '0'. In both cases, the function (callback or 'public function') stops at that point and does not execute further lines. It can be better understood by an example. Let's consider if a player walks in the checkpoint, and tries to buy an M4A1 having only 100$ at his/her disposal while the weapon costs 200$, this is how the above statment will look like if we predict the return values of each function in it:
+```c
+if (100 < 200) return 1;
+```
+If the play has money then `GivePlayerWeapon ();` function will give player the bought weapon along with 30 bullets, while `GivePlayerMoney ()` will deduce the money as it is being provided with a negative value in place of the 'amount' parameter.
 
-* This topic is unfinished, i'm working on it *
+```c
+GivePlayerWeapon (playerid, weaponid, ammo);
+GivePlayerMoney (playerid, amount);
+```
