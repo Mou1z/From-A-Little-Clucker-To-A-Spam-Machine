@@ -3,6 +3,8 @@
 This chapter will mainly include practical applications of the fundamentals taught in the previous chapter. Demonstrating the use of different features of the language through examples, this chapter aims to teach the intricacies of the fundamental concepts, therefore, after carefully reading the examples and their explanations presented in this chapter, the reader should have a better understanding of the concepts and hence should be able to apply them flexibly.
 
 - [Application 1](#application-1)
+- [Application 2](#application-2)
+- [Application 3](#application-3)
 
 
 
