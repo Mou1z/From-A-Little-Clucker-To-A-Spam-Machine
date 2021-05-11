@@ -6,17 +6,35 @@ Pawn is a modification of Small-C which is in-turn a subset language of the Orig
 
 The concept of ‘typed’ and ‘typeless’ languages will be explained in later sections.
 
-- [Comments](#comments)
-- [Symbols and Operators](#symbols-and-operators)
-- [String Formatting](#string-formatting)
-- [Variables](#variables)
-- [Constants](#constants)
-- [Conditionals](#conditionals)
-- [Loops](#loops)
-- [Functions](#functions)
-- [Enumerators](#enumerators)
-- [Preprocessor Directives](#preprocessor-directives)
-- [Compiler Warnings / Errors](#compiler-warnings)
+- [The Pawn Language | Fundamentals](#the-pawn-language--fundamentals)
+  - [Comments](#comments)
+        - [Code](#code)
+        - [Output:](#output)
+        - [Code](#code-1)
+        - [Output](#output-1)
+  - [Symbols and Operators](#symbols-and-operators)
+    - [Basic Symbols](#basic-symbols)
+      - [• Braces](#-braces)
+      - [• Parentheses](#-parentheses)
+      - [• Semi-colon](#-semi-colon)
+      - [• Single and Double Quotation Symbols](#-single-and-double-quotation-symbols)
+      - [• Revision](#-revision)
+    - [Operators](#operators)
+    - [String Formatting](#string-formatting)
+  - [Variables](#variables)
+        - [Examples:](#examples)
+  - [Constants](#constants)
+  - [Conditionals](#conditionals)
+        - [Code](#code-2)
+        - [Output](#output-2)
+  - [Loops](#loops)
+    - [‘For’ Loop](#for-loop)
+    - [While Loop](#while-loop)
+    - [Do…While Loop](#dowhile-loop)
+  - [Functions](#functions)
+  - [Enumerators](#enumerators)
+  - [Preprocessor Directives](#preprocessor-directives)
+  - [Compiler Warnings / Errors](#compiler-warnings--errors)
 
 
 
@@ -676,7 +694,7 @@ SetPlayerPos (playerid, Float: x, Float: y, Float: z);
 // Sets the player's position to some x, y, z coordinates. 
 // 'z' represents the vertical axis.
 ```
-A complete list of functions can be found on the Open.MP Wiki : https://www.open.mp/docs/scripting/functions
+A complete list of functions can be found on the open.mp Wiki : https://www.open.mp/docs/scripting/functions
 We can use functions creatively for the making of various features. Following is the code for a ‘One-shot Deagle Deathmatch’ where the player upon spawning will be given a Desert Eagle gun with 3 bullets and 10.0 health :
 ```c
 #include <a_samp>
