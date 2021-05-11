@@ -765,8 +765,8 @@ enum
 ```
 The above snippet is equivalent to the following code :
 ```c
-new CONST_A = 0;
-new CONST_B = 1;
+const CONST_A = 0;
+const CONST_B = 1;
 ```
 
 
