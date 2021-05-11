@@ -66,7 +66,7 @@ In the above code you can see some new functions and callbacks which are explain
 #### public OnPlayerConnect (playerid)
 As in the last chapter, the OnPlayerConnect callback is called whenever a player connects to the server.
 #### public OnPlayerEnterCheckpoint (playerid)
-The OnPlayerEnterCheckpoint is called whenever a player enters a simple checkpoint. A checkpoint is a red colored circular area often seen in single-player missions. The function used to create a checkpoint for a player is SetPlayerCheckpoint () which takes in five arguments : (Add Open.MP Function Link Here)
+The OnPlayerEnterCheckpoint is called whenever a player enters a simple checkpoint. A checkpoint is a red colored circular area often seen in single-player missions. The function used to create a checkpoint for a player is SetPlayerCheckpoint () which takes in five arguments : (Add open.mp Function Link Here)
 ```c
 SetPlayerCheckpoint (playerid, Float: x, Float: y, Float: z, Float: z);
 
@@ -81,7 +81,7 @@ Float: z - The z-axis coordinates for the checkpoint.
 *Note: If we use this function twice in a row, the older checkpoint will be removed which shows that a player can have only one checkpoint visible / functional at a time.*
 
 #### public OnDialogResponse (playerid, dialogid, response, listitem, inputtext[])
-The OnDialogResponse callback is triggered when a player interacts with a dialog shown to them. Dialogs are a way to display information to the player and/or take input from the user. There are different types of dialogs namely simple text box, input fields or lists. The function to show a dialog to a player is ShowPlayerDialog : (Add Function Link Here, From Open.MP)
+The OnDialogResponse callback is triggered when a player interacts with a dialog shown to them. Dialogs are a way to display information to the player and/or take input from the user. There are different types of dialogs namely simple text box, input fields or lists. The function to show a dialog to a player is ShowPlayerDialog : (Add Function Link Here, From open.mp)
 ```c
 ShowPlayerDialog (playerid, dialogid, style, caption, info, button1, button2);
 
