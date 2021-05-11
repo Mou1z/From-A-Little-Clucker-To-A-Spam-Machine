@@ -2,7 +2,7 @@
 A book about the PAWN Language (and SA-MP/open.mp Development), written for absolute beginners.
 
 ### Contributors :
-- None
+- BigETI (Ethem Kurt)
 
 ## Structure :
 #### 1. [Introduction](https://github.com/Mou1z/From-A-Little-Clucker-To-A-Spam-Machine/blob/main/Introduction.md)
