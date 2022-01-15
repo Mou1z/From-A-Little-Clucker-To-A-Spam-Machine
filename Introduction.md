@@ -26,7 +26,7 @@ In contrast to a programming language, Pawn is an ‘extension language’, and 
 ## The PAWN Compiler
 Generally, code written in most languages is stored in the form of a special text document called ‘source file’, which contains the raw code written by the programmer. The computers cannot directly understand the raw code (often referred to as ‘source code’) in the ‘source file’. For building an executable program, the source file is converted into the executable program using a set of tools which vary depending upon the language used. 
 
-A coding beginner does not necessarily need to know the details of program compilation, but having a rough idea of this concept does help on the long run. The PAWN compiler takes in the source file, combines it with other dependencies and creates a file with (.amx) extension which contains ‘bytecode’ also called pseudo-code (P-Code). When the program or script is required to be executed, the P-Code (.amx) file is passed into an abstract machine and executed. An abstract machine in simplest terms a virtual model of a computer system.
+A coding beginner does not necessarily need to know the details of program compilation, but having a rough idea of this concept does help on the long run. The PAWN compiler takes in the source file, combines it with other dependencies and creates a file with (.amx) extension which contains ‘bytecode’ (P-Code). When the program or script is required to be executed, the P-Code (.amx) file is passed into an abstract machine and executed. An abstract machine in simplest terms a virtual model of a computer system.
 
 An ‘Integrated Development Environment’ also known as IDE in short, is a single program which contains the necessary tools for writing and compiling scripts in a language.
 
